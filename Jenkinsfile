@@ -17,7 +17,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-                echo "Image built: ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
 
@@ -31,8 +30,8 @@ pipeline {
             steps {
                 sh "docker stop q2app_container || true"
                 sh "docker rm q2app_container || true"
-                sh "docker run -d --name q2app_container -p 3000:3000 ${IMAGE_NAME}:${IMAGE_TAG}"
-                echo "App deployed on port 3000"
+                sh "docker run -d --name q2app_container -p 4000:3000 ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "sleep 2 && docker ps | grep q2app_container"
             }
         }
     }
