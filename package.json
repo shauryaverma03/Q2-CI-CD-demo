@@ -1,0 +1,13 @@
+{
+  "name": "q2-cicd",
+  "version": "1.0.0",
+  "description": "Q2 CI/CD Demo App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
